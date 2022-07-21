@@ -1,4 +1,3 @@
-// Assignment code here
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
 // THEN I am presented with a series of prompts for password criteria
@@ -33,6 +32,11 @@ function generatePassword() {
   return password;
 }
 
+window.prompt("How long do you want your password?");
+window.confirm("Include lowercase letters?");
+window.confirm("Include uppercase letters?");
+window.confirm("Include numbers?");
+window.confirm("Include special characters?");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
