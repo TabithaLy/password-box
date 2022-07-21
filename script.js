@@ -19,9 +19,16 @@
 var generateBtn = document.querySelector('#generate');
 
 function generatePassword() {
-  var password = 'password';
-  
+  var password = 'password'; 
   // TODO: add code to generate the password here
+  // line 24-30 from https://stackoverflow.com/questions/1497481/javascript-password-generator
+  var length = 8,
+      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.floor(Math.random() * n));
+  }
+  return retVal;
 
   return password;
 }
@@ -36,14 +43,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-// from https://stackoverflow.com/questions/1497481/javascript-password-generator
-function generatePassword() {
-  var length = 8,
-      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-      retVal = "";
-  for (var i = 0, n = charset.length; i < length; ++i) {
-      retVal += charset.charAt(Math.floor(Math.random() * n));
-  }
-  return retVal;
-}
