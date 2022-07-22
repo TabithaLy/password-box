@@ -1,26 +1,22 @@
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
 // Assignment Code
+// Worked with Joshua Rae on lines 3-13
 var generateBtn = document.querySelector('#generate');
+var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var special = ["!", "@", "#", "%", "^", "&", "*"];
+
+window.prompt("How long do you want your password?");
+lower = window.confirm("Include lowercase letters?");
+upper = window.confirm("Include uppercase letters?");
+numbers = window.confirm("Include numbers?");
+special = window.confirm("Include special characters?");
 
 function generatePassword() {
+
   var password = 'password'; 
   // TODO: add code to generate the password here
-  // line 24-30 from https://stackoverflow.com/questions/1497481/javascript-password-generator
+  // line 20-26 from https://stackoverflow.com/questions/1497481/javascript-password-generator
   var length = 8,
       charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
       retVal = "";
@@ -32,11 +28,6 @@ function generatePassword() {
   return password;
 }
 
-window.prompt("How long do you want your password?");
-window.confirm("Include lowercase letters?");
-window.confirm("Include uppercase letters?");
-window.confirm("Include numbers?");
-window.confirm("Include special characters?");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
